@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <script src="leaflet.ajax.min.js"></script>
+    </head>
+    <body>
+        
+    <div id="mapid" style="width: 1000px; height: 1000px"></div>
+    </body>
+    
+    <script>
+        
+        var mymap = L.map('mapid').setView([19.0760, 72.8777], 11);
+        var geojsonLayer = new L.GeoJSON.AJAX("mumbai_wards.geojson"); 
+        
+        mapLink = 
+            '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors',
+            maxZoom: 18,
+            }).addTo(mymap);
+        var marker = L.marker([19.0760, 72.8777]).addTo(mymap);
+              
+geojsonLayer.addTo(mymap);
+        
+    </script>
+        
+</html>
+
+
+<!-- <!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title>Mumbai</title>
+    <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+    <script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script scr="https://raw.githubusercontent.com/calvinmetcalf/leaflet-ajax/master/dist/leaflet.ajax.min.js"></script>
+  <link 
+        rel="stylesheet" 
+        href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"
+    />
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+    <script
+        src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script> -->
